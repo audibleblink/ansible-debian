@@ -1,0 +1,311 @@
+---
+
+###
+### Custom variables
+###
+debian_dist: buster
+
+
+###
+### Debian apt repositories
+###
+apt_repo_repositories:
+  # testing
+  - file: debian-testing
+    repo: "deb http://ftp.us.debian.org/debian testing main contrib non-free"
+  - file: debian-testing
+    repo: "deb-src http://ftp.us.debian.org/debian testing main contrib non-free"
+  # stable
+  - file: debian-stable
+    repo: "deb http://ftp.us.debian.org/debian stable main contrib non-free"
+  - file: debian-stable
+    repo: "deb-src http://ftp.us.debian.org/debian stable main contrib non-free"
+  # unstable
+  - file: debian-unstable
+    repo: "deb http://ftp.us.debian.org/debian unstable main contrib non-free"
+  - file: debian-unstable
+    repo: "deb-src http://ftp.us.debian.org/debian unstable main contrib non-free"
+  # experimental
+  - file: debian-experimental
+    repo: "deb http://ftp.us.debian.org/debian experimental main contrib non-free"
+  - file: debian-experimental
+    repo: "deb-src http://ftp.us.debian.org/debian experimental main contrib non-free"
+  # security
+  - file: debian-security
+    repo: "deb http://security.debian.org/ testing/updates main contrib non-free"
+  - file: debian-security
+    repo: "deb http://security.debian.org/ stable/updates main contrib non-free"
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+# https://github.com/Airblader/dotfiles-manjaro/blob/master/SETUP
+systemd_disabled:
+  - exim4.service
+  - ModemManager.services
+  - nfs-common.service
+  - rpcbind.service
+  - rpcbind.target
+  - binfmt-support.service
+
+
+###
+### System Python versions
+###
+python_2: True
+
+python_3: True
+
+
+###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+
+pip3_packages: []
+
+
+###
+### Debian packages (add your custom packages here)
+###
+apt_packages:
+# ---- Base Utils ----
+  - curl
+  - dnsutils
+  - flameshot
+  - gnupg
+  - gnupg-agent
+  - gvim
+  - htop
+  - iwd
+  - less
+  - lsb-release
+  - lsof
+  - man-db
+  - manpages
+  - p7zip-full
+  - pinentry-tty
+  - ripgrep
+  - socat
+  - tmux
+  - tree
+  - xcape
+  - xxd
+# ---- Sec Tools (default) ----
+  - nmap
+  - wireshark-gtk
+# ---- Theme tools ----
+  - lxappearance
+# ---- Firmwares ----
+  - firmware-iwlwifi
+  - firmware-linux
+  - firmware-misc-nonfree
+  - intel-microcode
+# ---- Block devices ----
+  - libblockdev-plugins-all
+  - udisks2-btrfs
+  - udisks2-lvm2
+# ---- Window Manager ----
+  - arandr
+  - compton
+  - dunst
+  - feh
+  - redshift
+  - redshift-gtk
+  - rofi
+  - xss-lock
+# ---- Office / Productivity ----
+  # - keepassx
+# ---- Video ----
+# ---- Audio ----
+  - alsa-utils
+  - alsa-oss
+  - blueman
+  - pavucontrol
+  - pulseaudio
+  - pulseaudio-module-bluetooth
+  - pulseaudio-utils
+# ---- Network clients ----
+  - openssh-client
+  - remmina
+  - remmina-plugin-nx
+  - remmina-plugin-rdp
+  - remmina-plugin-vnc
+  - remmina-plugin-xdmcp
+# ---- Development ----
+  - binutils
+  - devscripts
+  - dos2unix
+  - exuberant-ctags
+  - jq
+  - tig
+# ---- chat ----
+# ---- dbus ----
+
+
+###
+### Select packages to install
+###
+### 'install': Install the package
+### 'remove':  Uninstall the package
+### Any other value will ignore the package (neither install nor uninstall)
+
+autorunner:            'install'
+chromium:              'install'
+clipmenu:              'install'
+dbeaver:               'noop'
+diff_highlight:        'noop'
+docker:                'install'
+docker_compose:        'install'
+ffscreencast:          'install'
+firefox:               'install'
+font_font_awesome:     'install'
+font_droid_sans_mono:  'install'
+font_san_francisco:    'install'
+font_terminus:         'install'
+font_ubuntu:           'install'
+fzf:                   'noop'
+gimp:                  'noop'
+i3:                    'noop'
+i3_gaps:               'install'
+i3_utils_bin:          'install'
+i3_utils_systemd:      'install'
+i3blocks_modules:      'install'
+icon_moka:             'install'
+kops:                  'noop'
+kubectl:               'noop'
+libreoffice:           'noop'
+lxdm:                  'install'
+neovim:                'noop'
+network_manager:       'install'
+oh_my_zsh:             'noop'
+packer:                'noop'
+pinta:                 'noop'
+ranger:                'noop'
+skype:                 'noop'
+sublime:               'noop'
+sxiv:                  'install'
+telegram:              'noop'
+terraform:             'noop'
+theme_arc:             'install'
+thunar:                'install'
+thunar_custom_actions: 'install'
+thunderbird:           'noop'
+timemachine:           'install'
+urxvt:                 'install'
+virtualbox:            'noop' # no package matching virtualbox error
+xbacklight:            'install'
+xorg:                  'install'
+zathura:               'install'
+
+
+###
+### Settings for packages
+###
+
+# ---- Chromium ----
+# Only works for extensions from web store
+chromium_extensions:
+  # vimium
+  - dbepggeogbaibhgnhhndojpepiihcmeb
+
+# ---- Docker ----
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+docker_repo_dist: "{{ debian_dist }}"
+# 'stable' or 'edge'
+docker_repo_channel: edge
+
+# ---- FZF ----
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: True
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: False
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: False
+
+# ---- LXDM ----
+lxdm_dpi: 180
+lxdm_gtk_theme: Arc-Darker
+lxdm_show_user_list: False
+
+# ---- NetworkManager ----
+network_manager_nm_applet: True
+network_manager_plugin_openvpn: True
+network_manager_plugin_l2tp: False
+network_manager_plugin_openconnect: False
+network_manager_plugin_pptp: False
+network_manager_plugin_ssh: False
+network_manager_plugin_strongswan: False
+network_manager_plugin_vpnc: False
+
+# ---- Skype ----
+# 'stable' or 'unstable'
+skype_repo_channel: stable
+
+# ---- Sublime ----
+# 'stable' or 'dev'
+sublime_repo_channel: stable
+
+# ---- sxiv ----
+# Make sxiv default program for pictures
+sxiv_default_image_viewer: True
+
+# ---- Thunar ----
+thunar_volman_enable: True
+thunar_archive_plugin_enable: True
+
+# ---- Thunderbird ----
+thunderbird_ext_apt:
+  - lightning
+  - enigmail
+
+thunderbird_ext_official:
+  - https://addons.mozilla.org/en-US/thunderbird/addon/dkim-verifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/gnotifier/
+#  - https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/provider-for-google-calendar/
+  - https://addons.mozilla.org/en-US/thunderbird/addon/x-unsent-support/
+
+# List of urls pages in which an XPI download link can be found.
+# Note: The first found XPI download url will be used
+thunderbird_ext_custom:
+  - https://github.com/ExchangeCalendar/exchangecalendar/releases
+
+# ---- Xorg ----
+# Supported values: 'amdgpu' 'ati' 'intel' 'modesetting' 'nouveau' 'nvidia' 'radeon'
+xorg_gpu: modesetting
+# Supported values: 'XAA' 'EXA' 'UXA' 'SNA' 'glamor'
+xorg_gpu_accel_method: glamor
+# Enable VDPAU_DRIVER=va_gl systemwide
+xorg_gpu_vdpau_va_gl_enable: True
+# 'libinput' or 'synaptics'
+xorg_touchpad_enable: True
+xorg_touchpad_driver: 'synaptics'
+
+
+###
+### Set your preferred default applications
+###
+xdg_mime_defaults:
+  - desktop_file: Thunar.desktop
+    mime_types:
+      - inode/directory
+  - desktop_file: chromium.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+  - desktop_file: zathura.desktop
+    mime_types:
+      - application/pdf
+      - application/postscript
+      - application/eps
+      - application/x-eps
+      - image/eps
+      - image/x-eps

@@ -19,6 +19,28 @@
   become: True
   notify: update apt repository cache
 
+- name: ensure repositories are pinned in order
+  copy:
+    dest: /etc/apt/preferences.d/pinning
+    content: |
+      Package: *
+      Pin: release o=Debian,a=testing
+      Pin-Priority: 900
+
+      Package: *
+      Pin: release o=Debian,a=stable
+      Pin-Priority: 400
+
+      Package: *
+      Pin: release o=Debian,a=unstable
+      Pin-Priority: 300
+
+      Package: *
+      Pin: release o=Debian
+      Pin-Priority: -1
+  become: True
+  notify: update apt repository cache
+
 - name: ensure apt keys are managed
   apt_key:
     state: "{{ apt_repo_state }}"
