@@ -29,13 +29,13 @@ help:
 	@echo
 	@echo "build-docker                 Build the testing Docker image (happens automatically during tests)"
 	@echo
-	@echo "test-docker-docker-full      Run a full test in a Docker (requires PROFILE)"
-	@echo "test-docker-docker-random    Run a full randomized test in a Docker (requires PROFILE)"
-	@echo "test-docker-docker-single    Run the test on a single role in a Docker (requires PROFILE and ROLE)"
+	@echo "test-docker-full      Run a full test in a Docker (requires PROFILE)"
+	@echo "test-docker-random    Run a full randomized test in a Docker (requires PROFILE)"
+	@echo "test-docker-single    Run the test on a single role in a Docker (requires PROFILE and ROLE)"
 	@echo
-	@echo "itest-docker-docker-full     Interactive version of test-docker-full (requires PROFILE)"
-	@echo "itest-docker-docker-random   Interactive version of test-docker-random (requires PROFILE)"
-	@echo "itest-docker-docker-single   Interactive version of test-docker-single (requires PROFILE and ROLE)"
+	@echo "itest-docker-full     Interactive version of test-docker-full (requires PROFILE)"
+	@echo "itest-docker-random   Interactive version of test-docker-random (requires PROFILE)"
+	@echo "itest-docker-single   Interactive version of test-docker-single (requires PROFILE and ROLE)"
 	@echo
 	@echo
 	@echo "------------------------------------------------------------"
@@ -53,28 +53,29 @@ help:
 #--------------------------------------------------------------------------------------------------
 
 build-docker:
-	docker build -t $(IMAGE) -f $(DIR)/$(FILE) $(DIR)
+	(sudo docker images | grep ${IMAG} 2>/dev/null) || \
+	sudo docker build -t $(IMAGE) -f $(DIR)/$(FILE) $(DIR)
 
 # Automated tests
 test-docker-full: build-docker
-	docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -t $(IMAGE)
+	sudo docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -t $(IMAGE)
 
 test-docker-random: build-docker
-	docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e random=1 -t $(IMAGE)
+	sudo docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e random=1 -t $(IMAGE)
 
 test-docker-single: build-docker
-	docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e tag=$(ROLE) -t $(IMAGE)
+	sudo docker run --rm -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e tag=$(ROLE) -t $(IMAGE)
 
 # Interactive tests
 # When inside the Container execute: ./run-tests.sh
 itest-docker-full: build-docker
-	docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -t $(IMAGE)
+	sudo docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -t $(IMAGE)
 
 itest-docker-random: build-docker
-	docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e random=1 -t $(IMAGE)
+	sudo docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e random=1 -t $(IMAGE)
 
 itest-docker-single: build-docker
-	docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e tag=$(ROLE) -t $(IMAGE)
+	sudo docker run -it --rm --entrypoint=bash -e MY_HOST=$(PROFILE) -e verbose=$(VERBOSE) -e tag=$(ROLE) -t $(IMAGE)
 
 
 #--------------------------------------------------------------------------------------------------
