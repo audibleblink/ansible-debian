@@ -1,4 +1,3 @@
-#
 # Inventory file
 #
 # Customize:
@@ -24,11 +23,11 @@ generic-all ansible_connection=local
 
 
 ###
-### Cytopia's profile
+### audibleblink's profile
 ###
-[cytopia]
-# $ ansible-playbook -i inventory playbook.yml --diff --limit cytopia-t470p --ask-become-pass
-cytopia-t470p ansible_connection=local
+[blink]
+# $ ansible-playbook -i inventory playbook.yml --diff --limit blink-x1 --ask-become-pass
+blink-x1 ansible_connection=local
 
 
 ###

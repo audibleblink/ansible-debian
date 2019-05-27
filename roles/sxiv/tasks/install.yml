@@ -8,7 +8,7 @@
 
 - name: ensure sxiv wrapper is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/bin/ximage
+    url: https://raw.githubusercontent.com/audibleblink/i3-utils-bin/master/bin/ximage
     dest: "/usr/local/bin/{{ sxiv_wrapper_name }}"
     mode: 0755
     force: True

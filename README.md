@@ -2,15 +2,15 @@
 
 **[TL;DR](#tldr)** | **[Features](#features)** | **[Custom profiles](#create-custom-profiles)** | **[Test your profile](#test-your-profile)**  | **[Options](#options)** | **[Requirements](#requirements)** | **[Stability](#stability)** | **[Other OS](#other-os)** | **[License](#license)**
 
-[![travis](https://travis-ci.org/cytopia/ansible-debian.svg?branch=master)](https://travis-ci.org/cytopia/ansible-debian)
-<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
-<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/cytopia/icons/raw/master/128x128/debian.png" alt="Debian" title="Debian" />
+[![travis](https://travis-ci.org/audibleblink/ansible-debian.svg?branch=master)](https://travis-ci.org/audibleblink/ansible-debian)
+<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/audibleblink/icons/raw/master/128x128/ansible.png" alt="Ansible" title="Ansible" />
+<img width="24" height="24" style="width:24px; height:24px;" src="https://github.com/audibleblink/icons/raw/master/128x128/debian.png" alt="Debian" title="Debian" />
 
 Well-tested and customizable **[Ansible](https://www.ansible.com)** setup to provision your workstation with Debian.
 
 Get your system back under control. Manage packages not provided by default and keep track of repositories as well as of installed software. Any bundled package offers the possibility to fully manage them, i.e. make sure they are installed or removed. Of course you can also simply ignore them, in case you want to manage them yourself.
 
-It is designed to be a generic **buildfiles** (as opposed to **[dotfiles](https://github.com/cytopia/dotfiles)**) manager. You can add as many profiles as you want (e.g.: for different hardware on different notebooks) and also have the choice to provision it locally or over the network.
+It is designed to be a generic **buildfiles** (as opposed to **[dotfiles](https://github.com/audibleblink/dotfiles)**) manager. You can add as many profiles as you want (e.g.: for different hardware on different notebooks) and also have the choice to provision it locally or over the network.
 
 [![asciicast](https://asciinema.org/a/153924.png)](https://asciinema.org/a/153924)
 
@@ -53,10 +53,10 @@ The only requirements are `bash` and `sudo`, everything else will be installed a
 
 ```bash
 # Provision default profile
-curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash
+curl https://raw.githubusercontent.com/audibleblink/ansible-debian/master/bootstrap | bash
 
 # Provision profile 'generic-all'
-curl https://raw.githubusercontent.com/cytopia/ansible-debian/master/bootstrap | bash -s generic-all
+curl https://raw.githubusercontent.com/audibleblink/ansible-debian/master/bootstrap | bash -s generic-all
 ```
 
 #### Manually provision your system from scratch
@@ -65,7 +65,7 @@ Use this to provision your system from scratch, when you don't have a profile su
 
 ```bash
 # 1. Clone this project
-git clone https://github.com/cytopia/ansible-debian
+git clone https://github.com/audibleblink/ansible-debian
 cd ansible-debian
 
 # 2. Add your profile 'bob' (See 'Create custom profiles' section of this README)
@@ -97,7 +97,7 @@ make diff-tools PROFILE=generic-all ROLE=i3-gaps
 
 This Ansible repository allows you to provision your Debian machines and keeping them up-to-date. It allows you to create different profiles for different machines and offers packages that are not available by any Debian repository.
 
-This is a base idempotent provisioning with sensible defaults that can be slightly adjusted. It is only meant as a **buildfiles** bootstrap. In order to customize the applications itself, you will still have to apply your personal **[dotfiles](https://github.com/cytopia/dotfiles)** on top of that.
+This is a base idempotent provisioning with sensible defaults that can be slightly adjusted. It is only meant as a **buildfiles** bootstrap. In order to customize the applications itself, you will still have to apply your personal **[dotfiles](https://github.com/audibleblink/dotfiles)** on top of that.
 
 #### Available tools 
 <table>
@@ -109,7 +109,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
  </thead>
  <tbody>
   <tr>
-   <td><a href="https://github.com/cytopia/autorunner">autorunner</a></td>
+   <td><a href="https://github.com/audibleblink/autorunner">autorunner</a></td>
    <td>Configurable and notification aware autostart helper for minimalistic window managers like i3, openbox and others</td>
   </tr>
   <tr>
@@ -137,7 +137,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Downloads latest <code>docker-compose</code> binary</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/ffscreencast">ffscreencast</a></td>
+   <td><a href="https://github.com/audibleblink/ffscreencast">ffscreencast</a></td>
    <td>FFmpeg wrapper for desktop-recording with video overlay and multi monitor support</td>
   </tr>
   <tr>
@@ -161,15 +161,15 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>i3wm on steroids</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/i3-utils-bin">i3-utils-bin</a></td>
+   <td><a href="https://github.com/audibleblink/i3-utils-bin">i3-utils-bin</a></td>
    <td>Tools for i3wm</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/i3-utils-systemd">i3-utils-systemd</a></td>
+   <td><a href="https://github.com/audibleblink/i3-utils-systemd">i3-utils-systemd</a></td>
    <td>Systemd files for i3wm</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/i3blocks-modules">i3blocks-modules</a></td>
+   <td><a href="https://github.com/audibleblink/i3blocks-modules">i3blocks-modules</a></td>
    <td>Awesome i3blocks modules</td>
   </tr>
   <tr>
@@ -242,7 +242,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Thunar and its requirements to handle external disks as well as encrypted disks</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/thunar-custom-actions">thunar-custom-actions</a></td>
+   <td><a href="https://github.com/audibleblink/thunar-custom-actions">thunar-custom-actions</a></td>
    <td>Thunar custom actions</td>
   </tr>
   <tr>
@@ -250,7 +250,7 @@ This is a base idempotent provisioning with sensible defaults that can be slight
    <td>Thunderbird and globally defined add-ons</td>
   </tr>
   <tr>
-   <td><a href="https://github.com/cytopia/linux-timemachine">timemachine</a></td>
+   <td><a href="https://github.com/audibleblink/linux-timemachine">timemachine</a></td>
    <td>OSX like timemachine for the command line</td>
   </tr>
   <tr>
@@ -522,7 +522,7 @@ usermod -aG sudo <username>
 
 ## Stability
 
-In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/cytopia/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside a Docker container. The following test cases have been defined:
+In order to guarantee the most possible stability of this setup, extensive [travis-ci](https://travis-ci.org/audibleblink/ansible-debian) checks have been defined which automatically run every night. Those tests are run inside a Docker container. The following test cases have been defined:
 
 * Each run is done randomized and in order as well as for each role separately
 * Each run is done for Debian stable and upgraded to testing
@@ -547,4 +547,4 @@ Please feel free to contribute and add new roles as desired. When doing so have 
 
 **[MIT License](LICENSE.md)**
 
-Copyright (c) 2017 [cytopia](https://github.com/cytopia)
+Copyright (c) 2017 [audibleblink](https://github.com/audibleblink)

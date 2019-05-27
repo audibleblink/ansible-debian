@@ -15,7 +15,7 @@
 
 - name: ensure i3blocks-modules is cloned
   git:
-    repo: https://github.com/cytopia/i3blocks-modules
+    repo: https://github.com/audibleblink/i3blocks-modules
     clone: True
     dest: "{{ i3blocks_modules_path }}"
     force: True

@@ -8,7 +8,7 @@
 
 - name: ensure ffscreencast is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/ffscreencast/master/bin/ffscreencast
+    url: https://raw.githubusercontent.com/audibleblink/ffscreencast/master/bin/ffscreencast
     dest: "{{ ffscreencast_bin_path }}/ffscreencast"
     mode: 0755
     force: True

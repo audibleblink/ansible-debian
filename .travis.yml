@@ -19,9 +19,9 @@ env:
     ### Cytopia's profile
     ###
     # All roles (playbook order)
-    - random=0 dist=cytopia-t470p
+    - random=0 dist=blink-x1
     # All roles (random order)
-    - random=1 dist=cytopia-t470p
+    - random=1 dist=blink-x1
 
 
 before_script:

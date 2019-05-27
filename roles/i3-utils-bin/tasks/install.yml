@@ -8,7 +8,7 @@
 
 - name: ensure i3-utils-bin tools are downloaded
   get_url:
-    url: "https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/bin/{{ item }}"
+    url: "https://raw.githubusercontent.com/audibleblink/i3-utils-bin/master/bin/{{ item }}"
     dest: "/usr/local/bin/{{ item }}"
     mode: 0755
     force: True
@@ -29,7 +29,7 @@
 
 - name: ensure ximage desktop file is present
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/applications/ximage.desktop
+    url: https://raw.githubusercontent.com/audibleblink/i3-utils-bin/master/applications/ximage.desktop
     dest: /usr/share/applications/ximage.desktop
     mode: 0644
     force: True

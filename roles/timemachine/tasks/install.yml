@@ -8,7 +8,7 @@
 
 - name: ensure linux timemachine is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/linux-timemachine/master/timemachine
+    url: https://raw.githubusercontent.com/audibleblink/linux-timemachine/master/timemachine
     dest: "{{ timemachine_path }}"
     mode: 0755
     force: True

@@ -8,7 +8,7 @@
 
 - name: ensure xlock is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/i3-utils-bin/master/bin/xlock
+    url: https://raw.githubusercontent.com/audibleblink/i3-utils-bin/master/bin/xlock
     dest: /usr/local/bin/xlock
     mode: 0755
     force: True
@@ -31,7 +31,7 @@
 
 - name: ensure i3-utils-systemd close-lid is downloaded
   get_url:
-    url: https://raw.githubusercontent.com/cytopia/i3-utils-systemd/master/systemd/logind.conf.d/70-close_lid.conf
+    url: https://raw.githubusercontent.com/audibleblink/i3-utils-systemd/master/systemd/logind.conf.d/70-close_lid.conf
     dest: "{{ i3_utils_systemd_systemd_base_path }}/logind.conf.d/70-close_lid.conf"
     mode: 0644
     force: True
@@ -53,7 +53,7 @@
 
 - name: ensure i3-utils-systemd suspend is downloaded
   get_url:
-    url: https://github.com/cytopia/i3-utils-systemd/raw/master/systemd/system/suspend.service
+    url: https://github.com/audibleblink/i3-utils-systemd/raw/master/systemd/system/suspend.service
     dest: "{{ i3_utils_systemd_tmp.path }}"
     mode: 0644
     force: True

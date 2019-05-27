@@ -8,7 +8,7 @@
 
 - name: ensure thunar custom actions are downloaded
   get_url:
-    url: "https://raw.githubusercontent.com/cytopia/thunar-custom-actions/master/{{ item }}"
+    url: "https://raw.githubusercontent.com/audibleblink/thunar-custom-actions/master/{{ item }}"
     dest: "{{ thunar_custom_actions_bin_path }}/{{ item }}"
     mode: 0755
     force: True

@@ -1,11 +1,11 @@
 DIR = .
 FILE = Dockerfile
-IMAGE = cytopia/ansible-debian
+IMAGE = audibleblink/ansible-debian
 TAG = latest
 
 # Ansible variables
-VERBOSE=
-PROFILE=cytopia-t470p
+VERBOSE=1
+PROFILE=blink-x1
 ARG=
 
 .PHONY: help build-docker test-docker-full test-docker-random test-docker-single itest-docker-full itest-docker-random itest-docker-single

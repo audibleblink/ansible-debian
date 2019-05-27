@@ -1,6 +1,5 @@
-# vim:set ft=dockerfile:
 FROM debian:stretch
-MAINTAINER "cytopia" <cytopia@everythingcli.org>
+MAINTAINER "audibleblink" <me@alexflor.es>
 
 RUN set -eux \
 	&& apt-get update \
@@ -20,19 +19,19 @@ RUN set -eux \
 
 # Add user with password-less sudo
 RUN set -eux \
-	&& useradd -m -s /bin/bash cytopia \
-	&& echo "cytopia ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/cytopia
+	&& useradd -m -s /bin/bash blink \
+	&& echo "blink ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/blink
 
 # Copy files
-COPY ./ /home/cytopia/ansible
+COPY ./ /home/blink/ansible
 RUN set -eux \
-	&& chown -R cytopia:cytopia /home/cytopia/ansible
+	&& chown -R blink:blink /home/blink/ansible
 
 # Switch to user
-USER cytopia
+USER blink
 
 # Change working directory
-WORKDIR /home/cytopia/ansible
+WORKDIR /home/blink/ansible
 
 # Systemd cannot be checked inside Docker, so replace it with a dummy role
 RUN set -eux \
