@@ -72,12 +72,13 @@ pip3_packages: []
 ###
 apt_packages:
 # ---- Base Utils ----
+  - apt-utils
+  - ca-certificates
+  - software-properties-common
   - curl
   - dnsutils
-  - flameshot
   - gnupg
   - gnupg-agent
-  - gvim
   - htop
   - iwd
   - less
@@ -85,28 +86,31 @@ apt_packages:
   - lsof
   - man-db
   - manpages
+
+# ---- User Tools ----
+  - flameshot
+  - xcape
   - p7zip-full
   - pinentry-tty
+  - vim-gtk
   - ripgrep
   - socat
   - tmux
   - tree
-  - xcape
   - xxd
+
 # ---- Sec Tools (default) ----
   - nmap
   - wireshark-gtk
+
 # ---- Theme tools ----
   - lxappearance
-# ---- Firmwares ----
-  - firmware-iwlwifi
-  - firmware-linux
-  - firmware-misc-nonfree
-  - intel-microcode
+
 # ---- Block devices ----
   - libblockdev-plugins-all
   - udisks2-btrfs
   - udisks2-lvm2
+
 # ---- Window Manager ----
   - arandr
   - compton
@@ -116,9 +120,15 @@ apt_packages:
   - redshift-gtk
   - rofi
   - xss-lock
+
 # ---- Office / Productivity ----
-  # - keepassx
+  - pass
+  - pass-extension-otp
+  - pass-extension-tail
+
 # ---- Video ----
+  - mpv
+
 # ---- Audio ----
   - alsa-utils
   - alsa-oss
@@ -127,6 +137,7 @@ apt_packages:
   - pulseaudio
   - pulseaudio-module-bluetooth
   - pulseaudio-utils
+
 # ---- Network clients ----
   - openssh-client
   - remmina
@@ -134,6 +145,7 @@ apt_packages:
   - remmina-plugin-rdp
   - remmina-plugin-vnc
   - remmina-plugin-xdmcp
+
 # ---- Development ----
   - binutils
   - devscripts
@@ -141,8 +153,6 @@ apt_packages:
   - exuberant-ctags
   - jq
   - tig
-# ---- chat ----
-# ---- dbus ----
 
 
 ###
@@ -153,26 +163,26 @@ apt_packages:
 ### Any other value will ignore the package (neither install nor uninstall)
 
 autorunner:            'install'
-chromium:              'install'
+chromium:              'noop'
 clipmenu:              'install'
 dbeaver:               'noop'
 diff_highlight:        'noop'
 docker:                'install'
 docker_compose:        'install'
 ffscreencast:          'install'
-firefox:               'install'
+firefox:               'noop'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
 font_terminus:         'install'
 font_ubuntu:           'install'
-fzf:                   'noop'
+fzf:                   'install'
 gimp:                  'noop'
 i3:                    'noop'
 i3_gaps:               'install'
 i3_utils_bin:          'install'
 i3_utils_systemd:      'install'
-i3blocks_modules:      'install'
+i3blocks_modules:      'noop'
 icon_moka:             'install'
 kops:                  'noop'
 kubectl:               'noop'
