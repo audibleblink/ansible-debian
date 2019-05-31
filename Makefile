@@ -4,7 +4,7 @@ IMAGE = audibleblink/ansible-debian
 TAG = latest
 
 # Ansible variables
-VERBOSE=1
+VERBOSE=4
 PROFILE=blink-x1
 ARG=
 

@@ -44,7 +44,7 @@ sudo make deploy-init
 make deploy-apt-sources PROFILE=${PROFILE}
 
 # (Step 3/4) dist-upgrade your system
-sudo make deploy-dist-upgrade
+# sudo make deploy-dist-upgrade
 
 # (Step 3/3) Deploy your system
 make deploy-tools PROFILE=${PROFILE}

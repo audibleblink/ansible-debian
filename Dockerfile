@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:testing
 MAINTAINER "audibleblink" <me@alexflor.es>
 
 RUN set -eux \
@@ -56,6 +56,8 @@ RUN set -eux \
 		echo "		verbose=\"-vv\""; \
 		echo "	elif [ \"\${verbose}\" = \"3\" ]; then"; \
 		echo "		verbose=\"-vvv\""; \
+		echo "	elif [ \"\${verbose}\" = \"4\" ]; then"; \
+		echo "		verbose=\"-vvvv\""; \
 		echo "	else"; \
 		echo "		verbose=\"\""; \
 		echo "	fi"; \
