@@ -86,6 +86,7 @@ apt_packages:
   - lsof
   - man-db
   - manpages
+  - dbus-x11
 
 # ---- User Tools ----
   - flameshot
