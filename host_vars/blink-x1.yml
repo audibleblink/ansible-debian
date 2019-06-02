@@ -164,20 +164,20 @@ apt_packages:
 ### Any other value will ignore the package (neither install nor uninstall)
 
 autorunner:            'install'
-chromium:              'noop'
+chromium:              'install'
 clipmenu:              'install'
 dbeaver:               'noop'
 diff_highlight:        'noop'
 docker:                'install'
-docker_compose:        'install'
+docker_compose:        'noop'
 ffscreencast:          'install'
-firefox:               'noop'
+firefox:               'install'
 font_font_awesome:     'install'
 font_droid_sans_mono:  'install'
 font_san_francisco:    'install'
 font_terminus:         'install'
 font_ubuntu:           'install'
-fzf:                   'install'
+fzf:                   'noop'
 gimp:                  'noop'
 i3:                    'noop'
 i3_gaps:               'install'
@@ -188,7 +188,7 @@ icon_moka:             'install'
 kops:                  'noop'
 kubectl:               'noop'
 libreoffice:           'noop'
-lxdm:                  'install'
+lxdm:                  'noop'
 neovim:                'noop'
 network_manager:       'install'
 oh_my_zsh:             'noop'
@@ -204,7 +204,7 @@ theme_arc:             'install'
 thunar:                'install'
 thunar_custom_actions: 'install'
 thunderbird:           'noop'
-timemachine:           'install'
+timemachine:           'noop'
 urxvt:                 'install'
 virtualbox:            'noop' # no package matching virtualbox error
 xbacklight:            'install'
@@ -221,6 +221,8 @@ zathura:               'install'
 chromium_extensions:
   # vimium
   - dbepggeogbaibhgnhhndojpepiihcmeb
+  # authy
+  - gaedmjdfmmahhbjefcbgaolhhanlaolb
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
@@ -234,7 +236,7 @@ fzf_update_rc: True
 # Enable/Disable fuzzy completion (bash & zsh)?
 fzf_completion: False
 # Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
-fzf_key_bindings: False
+fzf_key_bindings: True
 
 # ---- LXDM ----
 lxdm_dpi: 180
